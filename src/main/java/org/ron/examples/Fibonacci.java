@@ -9,16 +9,22 @@ public class Fibonacci {
         while (true) {
             System.out.println("Please enter a number: ");
             int i = s.nextInt();
-            int n = getFib(i);
+            long n = getFib(i);
             System.out.println(i + "th value in the series is: " + n);
         }
     }
 
-    public static int getFib(int n) {
-        return 0;
+    public static long getFib(int n) {
+        if (n <= 2) return 1;
+        long a = 1, b = 1;
+        for (int i = 3; i < n; i++) {
+            long c = a + b;
+            a = b;
+            b = c;
+        }
+        return a + b;
     }
 }
 
-
 // 1  2  3  4  5  6  7   8
-// 1, 1, 2, 3, 5, 8, 11, 19 ...
+// 1, 1, 2, 3, 5, 8, 13, 21 ...
