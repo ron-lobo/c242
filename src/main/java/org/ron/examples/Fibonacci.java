@@ -1,3 +1,5 @@
+package org.ron.examples;
+
 import java.util.Scanner;
 
 public class Fibonacci {
