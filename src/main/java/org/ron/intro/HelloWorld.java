@@ -20,5 +20,8 @@ public class HelloWorld {
         /*
          multi line comment
          */
+
+        StaticsIntro si = new StaticsIntro();
+        si.c4 = 'X';
     }
 }

@@ -1,8 +1,10 @@
 package org.ron.examples;
 
+import org.ron.intro.StaticsIntro;
+
 import java.util.Scanner;
 
-public class Fibonacci {
+public class Fibonacci extends StaticsIntro {
 
     public static void main(String[] args) {
         Scanner s = new Scanner(System.in);
@@ -23,6 +25,14 @@ public class Fibonacci {
             b = c;
         }
         return a + b;
+    }
+
+    public void testAccess() {
+        Fibonacci f = new Fibonacci();
+        f.c1 = 'X';
+        f.c2 = 'X';
+        // f.c3 = 'X';
+        // f.c4 = 'X';
     }
 }
 
