@@ -2,8 +2,8 @@ package org.ron.examples;
 
 public class Car {
 
-    private String make;
-    private String model;
+    private final String make;
+    private final String model;
     private int cc;
     private String colour;
     private int speed;
@@ -19,9 +19,13 @@ public class Car {
         this.colour = colour;
     }
 
-    public static void showCar(Car car) {
-        System.out.printf("car: make=%s, model=%s, cc=%d, colour=%s, speed=%d %n",
-                car.getMake(), car.getModel(), car.getCc(), car.getColour(), car.getSpeed());
+    @Override
+    public String toString() {
+        return getClass() + ": make = " + make +
+                ", model = " + model +
+                ", cc = " + cc +
+                ", colour = " + colour +
+                ", speed = " + speed;
     }
 
     public String getMake() {

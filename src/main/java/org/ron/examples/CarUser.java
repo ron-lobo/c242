@@ -22,13 +22,13 @@ public class CarUser {
 
         for (int i = 0; i < vehicles.length; i++) {
             Car car = vehicles[i];
-//            Car.showCar(car);
             System.out.println("i=" + i + " : " + car);
         }
+
         System.out.println();
 
         for (Car car : vehicles) {
-            Car.showCar(car);
+            System.out.println(car);
         }
     }
 }
