@@ -4,18 +4,18 @@ public class Car {
 
     private final String make;
     private final String model;
-    private int cc;
+    private Engine engine;
     private String colour;
     private int speed;
 
     public Car(String make, String model) {
-        this(make, model, 0, "white");
+        this(make, model, null, "white");
     }
 
-    public Car(String make, String model, int cc, String colour) {
+    public Car(String make, String model, Engine engine, String colour) {
         this.make = make;
         this.model = model;
-        this.cc = cc;
+        this.engine = engine;
         this.colour = colour;
     }
 
@@ -23,7 +23,7 @@ public class Car {
     public String toString() {
         return getClass() + ": make = " + make +
                 ", model = " + model +
-                ", cc = " + cc +
+                ", engine = " + engine +
                 ", colour = " + colour +
                 ", speed = " + speed;
     }
@@ -36,12 +36,12 @@ public class Car {
         return model;
     }
 
-    public int getCc() {
-        return cc;
+    public Engine getEngine() {
+        return engine;
     }
 
-    public void setCc(int cc) {
-        this.cc = cc;
+    public void setEngine(Engine e) {
+        engine = e;
     }
 
     public String getColour() {
