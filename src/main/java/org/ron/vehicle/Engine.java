@@ -1,4 +1,4 @@
-package org.ron.examples;
+package org.ron.vehicle;
 
 public class Engine {
 
