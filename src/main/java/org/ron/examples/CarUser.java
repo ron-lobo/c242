@@ -3,6 +3,8 @@ package org.ron.examples;
 import org.ron.vehicle.Car;
 import org.ron.vehicle.Engine;
 
+import java.util.List;
+
 public class CarUser {
 
     public static void main(String[] args) {
@@ -10,15 +12,22 @@ public class CarUser {
         carUser.createEngine();
         Car[] cars = carUser.createCars();
         carUser.showCars(cars);
+        carUser.messWith(cars[0]);
+        System.out.println("end of program");
     }
 
-//    public Engine createEngine_v1() {
-//        Engine e = new Engine();
-//        e.setCc(2400);
-//        e.setNumCylinders(6);
-//        e.setType("V6");
-//        return e;
-//    }
+    private void messWith(Car car) {
+        System.out.println();
+        System.out.println("before: " + car);
+        List<String> wheels = car.getWheels();
+        try {
+            wheels.clear();
+            wheels.add("square1");
+            System.out.println("after: " + car);
+        } catch (UnsupportedOperationException e) {
+            System.err.println("Failed to remove wheels: e=" + e.getMessage());
+        }
+    }
 
     public Engine createEngine() {
         Engine engine = new Engine("V", 6, 2400);

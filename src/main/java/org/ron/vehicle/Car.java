@@ -1,5 +1,9 @@
 package org.ron.vehicle;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
 public class Car {
 
     private final String make;
@@ -7,6 +11,7 @@ public class Car {
     private Engine engine;
     private String colour;
     private int speed;
+    private List<String> wheels = new ArrayList<>();
 
     public Car(String make, String model) {
         this(make, model, null, "white");
@@ -17,6 +22,7 @@ public class Car {
         this.model = model;
         this.engine = engine;
         this.colour = colour;
+        wheels.addAll(List.of("wheel1", "wheel2", "wheel3", "wheel4"));
     }
 
     @Override
@@ -25,7 +31,8 @@ public class Car {
                 ", model = " + model +
                 ", engine = " + engine +
                 ", colour = " + colour +
-                ", speed = " + speed;
+                ", speed = " + speed +
+                ", wheels = " + wheels;
     }
 
     public String getMake() {
@@ -38,6 +45,10 @@ public class Car {
 
     public Engine getEngine() {
         return engine;
+    }
+
+    public List<String> getWheels() {
+        return Collections.unmodifiableList(wheels);
     }
 
     public void setEngine(Engine e) {

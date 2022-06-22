@@ -24,6 +24,7 @@ public class CollectionsIntro {
     }
 
     private void maps() {
+        System.out.println("\nMaps");
         Map<String, Engine> driver2EngineMap1 = new HashMap<>();
         Map<String, Engine> driver2EngineMap2 = new TreeMap<>();
 
@@ -59,6 +60,7 @@ public class CollectionsIntro {
     }
 
     private void sets() {
+        System.out.println("\nSets");
         Set<String> drivers1 = new HashSet<>();
         Set<String> drivers2 = new TreeSet<>();
 
@@ -84,6 +86,7 @@ public class CollectionsIntro {
     }
 
     private void lists() {
+        System.out.println("\nLists");
 //         ArrayList<Integer> intList = new ArrayList<>(); // don't do this
         List<Integer> intList1 = new ArrayList<>();
         List<Integer> intList2 = new LinkedList<>();
@@ -96,6 +99,26 @@ public class CollectionsIntro {
         removeDuplicates("ArrayList", intList1);
         removeDuplicates("LinkedList", intList2);
         removeDuplicates("TreeList", intList3);
+
+//        intList1 = Collections.unmodifiableList(intList1);
+        manipulateList("ArrayList", intList1);
+        manipulateList("LinkedList", intList2);
+        manipulateList("TreeList", intList3);
+
+//        List<Engine> emptyAndUnmodifyable = List.of();
+        List<Engine> unmodifyable = List.of(e1, e2, e3, e5, e4);
+        List<Engine> modifyable = new ArrayList<>(unmodifyable);
+    }
+
+    private void manipulateList(String name, List<Integer> intList) {
+        Collections.sort(intList);
+        printoutList("sorted " + name, intList);
+        Collections.reverse(intList);
+        printoutList("reverse sorted " + name, intList);
+        Collections.shuffle(intList);
+        printoutList("shuffled " + name, intList);
+
+        List<Integer> list99 = Collections.unmodifiableList(intList);
     }
 
     private void removeDuplicates(String name, List<Integer> intList) {
@@ -112,6 +135,10 @@ public class CollectionsIntro {
         }
         list.add(0, 555);
         if (list.size() > 2) list.add(list.size() / 2, 777);
+        printoutList(text, list);
+    }
+
+    private void printoutList(String text, List<Integer> list) {
         System.out.println("list name = " + text + ", size = " + list.size());
         for (Integer i : list) {
             System.out.print(i + ", ");
@@ -120,12 +147,19 @@ public class CollectionsIntro {
     }
 
     private void arrays() {
-        int[] ints1 = new int[]{3, 55, 99, -7};
+        System.out.println("Arrays");
+        final int[] ints1 = new int[]{3, 55, 99, -7};
         int[] ints2 = new int[6];
         double doubles[] = new double[]{3, 55, 99, -7};
 
-        for (int i = 0; i < ints2.length; i++) {
-            System.out.printf("i=%d, ints[i]=%d%n", i, ints2[i]);
+        ints1[0] = 333;
+
+        for (int i = 0; i < ints1.length; i++) {
+            System.out.printf("ints1: i=%d, ints[i]=%d%n", i, ints1[i]);
+        }
+
+        for (int i : ints2) {
+            System.out.printf("ints2: value=%d%n", i);
         }
 
         for (double d : doubles) {
