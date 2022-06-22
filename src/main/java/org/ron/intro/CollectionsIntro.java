@@ -6,7 +6,6 @@ import org.ron.vehicle.Engine;
 
 import java.util.*;
 
-
 public class CollectionsIntro {
 
     private Random random = new Random();
@@ -18,13 +17,45 @@ public class CollectionsIntro {
 
     public static void main(String[] args) {
         CollectionsIntro ci = new CollectionsIntro();
-//        ci.arrays();
+        ci.arrays();
         ci.lists();
-//        ci.sets();
+        ci.sets();
         ci.maps();
     }
 
     private void maps() {
+        Map<String, Engine> driver2EngineMap1 = new HashMap<>();
+        Map<String, Engine> driver2EngineMap2 = new TreeMap<>();
+
+        loadMap(driver2EngineMap1);
+        loadMap(driver2EngineMap2);
+        driver2EngineMap1.put("V", e5);
+
+        showMap("HashMap", driver2EngineMap1);
+//        showMap("TreeMap", driver2EngineMap2);
+    }
+
+    private void showMap(String name, Map<String, Engine> driver2EngineMap) {
+        System.out.printf("map: %s, size=%d%n", name, driver2EngineMap.size());
+        for (String driver : driver2EngineMap.keySet()) {
+            System.out.printf("  driver: %s, engine: %s %n", driver, driver2EngineMap.get(driver));
+        }
+        System.out.println();
+        for (Map.Entry<String, Engine> entry : driver2EngineMap.entrySet()) {
+            System.out.printf("  driver: %s, engine: %s %n", entry.getKey(), entry.getValue());
+        }
+//        System.out.println();
+//        driver2EngineMap.forEach((k,v) -> System.out.printf(" driver: %s, engine: %s%n", k, v));
+    }
+
+    private void loadMap(Map<String, Engine> map) {
+        map.put("Jungkook", e1);
+        map.put("V", e2);
+        map.put("RM", e3);
+        map.put("Jimin", e4);
+        map.put("Suga", e5);
+//        map.put("Suga", e4);
+//        map.put("Suga", e3);
     }
 
     private void sets() {
