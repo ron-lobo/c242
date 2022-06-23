@@ -1,6 +1,6 @@
 package org.ron.vehicle;
 
-public class Engine {
+public class Engine implements Comparable<Engine> {
 
     private final String type;  // V or S
     private final int numCylinders;
@@ -26,5 +26,17 @@ public class Engine {
 
     public String toString() {
         return getClass().getSimpleName() + " {" + getType() + ", numCylinders=" + numCylinders + ", cc=" + cc + "}";
+    }
+
+    @Override
+    public int compareTo(Engine e) {
+        return Integer.compare(cc, e.cc);
+//        if (this.cc == e.cc) {
+//            return 0;
+//        } else if (this.cc < e.cc) {
+//            return -1;
+//        } else {
+//            return 1;
+//        }
     }
 }

@@ -68,6 +68,9 @@ public class CollectionsIntro {
 
         setHelper("HashSet", drivers1);
         setHelper("TreeSet", drivers2);
+
+        Set<Integer> intSet = Set.of(33, 55, 777, 9999, -12345);
+        printoutCollection("intSet", intSet);
     }
 
     private void setHelper(String name, Set<String> drivers) {
@@ -79,10 +82,12 @@ public class CollectionsIntro {
         drivers.add("Jungkook");
         drivers.add("Jimin");
         drivers.add("Jungkook");
-        for (String driver : drivers) {
-            System.out.println("  " + driver);
-        }
+        printoutCollection(name, drivers);
         System.out.println(" new size = " + drivers.size());
+    }
+
+    public List<Engine> getEngines() {
+        return List.of(e1, e2, e3, e4, e5);
     }
 
     private void lists() {
@@ -110,15 +115,13 @@ public class CollectionsIntro {
         List<Engine> modifyable = new ArrayList<>(unmodifyable);
     }
 
-    private void manipulateList(String name, List<Integer> intList) {
+    public static void manipulateList(String name, List<Integer> intList) {
         Collections.sort(intList);
-        printoutList("sorted " + name, intList);
+        printoutCollection("sorted " + name, intList);
         Collections.reverse(intList);
-        printoutList("reverse sorted " + name, intList);
+        printoutCollection("reverse sorted " + name, intList);
         Collections.shuffle(intList);
-        printoutList("shuffled " + name, intList);
-
-        List<Integer> list99 = Collections.unmodifiableList(intList);
+        printoutCollection("shuffled " + name, intList);
     }
 
     private void removeDuplicates(String name, List<Integer> intList) {
@@ -135,15 +138,18 @@ public class CollectionsIntro {
         }
         list.add(0, 555);
         if (list.size() > 2) list.add(list.size() / 2, 777);
-        printoutList(text, list);
+        printoutCollection(text, list);
     }
 
-    private void printoutList(String text, List<Integer> list) {
-        System.out.println("list name = " + text + ", size = " + list.size());
-        for (Integer i : list) {
-            System.out.print(i + ", ");
+    public static void printoutCollection(String text, Collection<?> collection) {
+        System.out.println("collection name = " + text + ", size = " + collection.size());
+        final String SEPARATOR = ", ";
+        StringBuilder sb = new StringBuilder();
+        for (Object i : collection) {
+            sb.append(i).append(SEPARATOR);
         }
-        System.out.println();
+        sb.deleteCharAt(sb.lastIndexOf(SEPARATOR));
+        System.out.println(sb);
     }
 
     private void arrays() {
