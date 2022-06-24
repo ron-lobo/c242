@@ -16,7 +16,7 @@ public class Engine implements Comparable<Engine> {
     public boolean equals(Object obj) {
         if (this == obj)
             return true;
-        if (obj == null || !(obj instanceof Engine))
+        if (!(obj instanceof Engine))
             return false;
         Engine e = (Engine) obj;
         return (type == e.type || (type != null && type.equals(e.type))) &&

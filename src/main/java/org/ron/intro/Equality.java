@@ -1,12 +1,30 @@
 package org.ron.intro;
 
+import org.ron.vehicle.Car;
 import org.ron.vehicle.Engine;
+
+import java.util.List;
 
 public class Equality {
 
     public static void main(String[] args) {
         Equality equality = new Equality();
-        equality.method1();
+//        equality.method1();
+        equality.method2();
+    }
+
+    private void method2() {
+        CollectionsIntro ci = new CollectionsIntro();
+        List<Engine> engines = ci.getEngines();
+        Engine eV8_3000 = new Engine("V", 8, 3000);
+        System.out.println("engines list contains v8-3000: " + engines.contains(eV8_3000));
+
+        Car c1 = new Car("VW", "Beetle");
+        Car c2 = new Car("Ford", "Fiesta");
+        List<Car> cars = List.of(c1, c2);
+        System.out.println("cars list contains Ford-Fiesta: " + cars.contains(new Car("Ford", "Fiesta")));
+
+
     }
 
     private void method1() {
