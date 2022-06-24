@@ -12,8 +12,20 @@ public class Engine implements Comparable<Engine> {
         this.cc = cc;
     }
 
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null || !(obj instanceof Engine))
+            return false;
+        Engine e = (Engine) obj;
+        return (type == e.type || (type != null && type.equals(e.type))) &&
+                getNumCylinders() == e.getNumCylinders() &&
+                getCc() == e.getCc();
+    }
+
     public String getType() {
-        return type + numCylinders;
+        return type;
     }
 
     public int getCc() {
