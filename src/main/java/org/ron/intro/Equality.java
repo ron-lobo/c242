@@ -10,26 +10,24 @@ public class Equality {
 
     public static void main(String[] args) {
         Equality equality = new Equality();
-//        equality.method1();
-//        equality.method2();
-        equality.method3();
+        equality.intro();
+        equality.objectEquality();
+        equality.listEquality();
     }
 
-    private void method3() {
+    private void listEquality() {
         List<String> letters1 = List.of("A", "B", "C");
         List<String> letters2 = List.of("A", "B", "C");
         List<String> letters3 = new ArrayList<>();
         letters3.add("A");
         letters3.add("C");
         letters3.add("B");
-
         System.out.println("l1, l2: " + letters1.equals(letters2));
         System.out.println("l1, l3: " + letters1.equals(letters3));
         System.out.println("l2, l3: " + letters2.equals(letters3));
     }
 
-
-    private void method2() {
+    private void objectEquality() {
         CollectionsIntro ci = new CollectionsIntro();
         List<Engine> engines = ci.getEngines();
         Engine eV8_3000 = new Engine("V", 8, 3000);
@@ -44,11 +42,9 @@ public class Equality {
                 new Car("Ford", "Fiesta", null, "red")));
         System.out.println("cars list contains Ford-Fiesta: " + cars.contains(
                 new Car("Ford", "Fiesta", new Engine("V", 8, 3000), "red")));
-
-
     }
 
-    private void method1() {
+    private void intro() {
         int i = 5;
         int l = 10;
         testEquality(i, l);
