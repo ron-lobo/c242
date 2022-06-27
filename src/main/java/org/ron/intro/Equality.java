@@ -3,6 +3,7 @@ package org.ron.intro;
 import org.ron.vehicle.Car;
 import org.ron.vehicle.Engine;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Equality {
@@ -10,8 +11,23 @@ public class Equality {
     public static void main(String[] args) {
         Equality equality = new Equality();
 //        equality.method1();
-        equality.method2();
+//        equality.method2();
+        equality.method3();
     }
+
+    private void method3() {
+        List<String> letters1 = List.of("A", "B", "C");
+        List<String> letters2 = List.of("A", "B", "C");
+        List<String> letters3 = new ArrayList<>();
+        letters3.add("A");
+        letters3.add("C");
+        letters3.add("B");
+
+        System.out.println("l1, l2: " + letters1.equals(letters2));
+        System.out.println("l1, l3: " + letters1.equals(letters3));
+        System.out.println("l2, l3: " + letters2.equals(letters3));
+    }
+
 
     private void method2() {
         CollectionsIntro ci = new CollectionsIntro();
@@ -20,9 +36,14 @@ public class Equality {
         System.out.println("engines list contains v8-3000: " + engines.contains(eV8_3000));
 
         Car c1 = new Car("VW", "Beetle");
-        Car c2 = new Car("Ford", "Fiesta");
+        Car c2 = new Car("Ford", "Fiesta", eV8_3000, "red");
         List<Car> cars = List.of(c1, c2);
-        System.out.println("cars list contains Ford-Fiesta: " + cars.contains(new Car("Ford", "Fiesta")));
+        System.out.println("cars list contains Ford-Fiesta: " + cars.contains(
+                new Car("Ford", "Fiesta")));
+        System.out.println("cars list contains Ford-Fiesta: " + cars.contains(
+                new Car("Ford", "Fiesta", null, "red")));
+        System.out.println("cars list contains Ford-Fiesta: " + cars.contains(
+                new Car("Ford", "Fiesta", new Engine("V", 8, 3000), "red")));
 
 
     }

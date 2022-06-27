@@ -3,6 +3,7 @@ package org.ron.vehicle;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Objects;
 
 public class Car {
 
@@ -33,6 +34,18 @@ public class Car {
                 ", colour = " + colour +
                 ", speed = " + speed +
                 ", wheels = " + wheels;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || obj.getClass() != this.getClass()) return false;
+        Car car = (Car) obj;
+        return Objects.equals(make, car.make) &&
+                Objects.equals(model, car.model) &&
+                Objects.equals(engine, car.engine) &&
+                Objects.equals(colour, car.colour) &&
+                Objects.equals(wheels, car.wheels);
     }
 
     public String getMake() {

@@ -1,5 +1,7 @@
 package org.ron.vehicle;
 
+import java.util.Objects;
+
 public class Engine implements Comparable<Engine> {
 
     private final String type;  // V or S
@@ -19,7 +21,7 @@ public class Engine implements Comparable<Engine> {
         if (!(obj instanceof Engine))
             return false;
         Engine e = (Engine) obj;
-        return (type == e.type || (type != null && type.equals(e.type))) &&
+        return Objects.equals(type, e.type) &&
                 getNumCylinders() == e.getNumCylinders() &&
                 getCc() == e.getCc();
     }
