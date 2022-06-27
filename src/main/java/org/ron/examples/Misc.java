@@ -5,6 +5,24 @@ import java.util.List;
 
 public class Misc {
 
+    public static void main(String[] args) {
+        method1("0 vals");
+        method1("1 val", 5);
+        method1("5 vals", 1, 2, 3, 4, 5);
+        method2(new int[]{1, 2, 3, 4, 5});
+    }
+
+    private static void method2(int[] vals) {
+    }
+
+    private static void method1(String s, int... vals) {
+        System.out.print(s + "   ");
+        for (int i : vals) {
+            System.out.print(i + " : " + i * i + ";  ");
+        }
+        System.out.println();
+    }
+
     public void ternaryOpDemo(int x, int y) {
         int z;
         if (x == y) {
