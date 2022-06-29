@@ -1,5 +1,7 @@
 package org.ron.examples;
 
+import org.ron.intro.InnerClasses;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -63,5 +65,14 @@ public class Misc {
     public static List<Integer> generatePercentageList(List<String> dogBreeds) {
         List<Integer> percentages = new ArrayList<>();
         return percentages;
+    }
+
+    private void inner() {
+        InnerClasses ic = new InnerClasses();
+        InnerClasses.Student student = ic.new Student(2, "Draco M");
+//        System.out.println("student: " + s0.id + ", " + s0.name);
+
+        InnerClasses.Employee e0 = new InnerClasses.Employee(321, "Minerva");
+//        System.out.println("employee: " + e0.id + ", " + e0.name);
     }
 }
