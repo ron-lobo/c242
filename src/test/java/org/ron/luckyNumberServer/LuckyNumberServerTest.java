@@ -3,13 +3,20 @@ package org.ron.luckyNumberServer;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.mockito.Mock;
+import org.mockito.Mockito;
+import org.mockito.MockitoAnnotations;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class LuckyNumberServerTest {
 
+    @Mock
+    private ILuckyNumberHelper luckyNumberHelper;
+
     @BeforeEach
     void setUp() {
+        MockitoAnnotations.openMocks(this);
     }
 
     @AfterEach
@@ -18,13 +25,10 @@ class LuckyNumberServerTest {
 
     @Test
     void getLuckyNumber() {
-        DepA depA = new DepA();
-        DepB depB = new DepB();
-        LuckyNumberDB luckyNumberDB = new LuckyNumberDB(depB);
-        LuckyNumberService luckyNumberService = new LuckyNumberService(luckyNumberDB, depA);
-        LuckyNumberHelper luckyNumberHelper = new LuckyNumberHelper(luckyNumberService);
+        Mockito.when(luckyNumberHelper.getNumber()).thenReturn(99);
+
         LuckyNumberServer luckyNumberServer = new LuckyNumberServer(luckyNumberHelper);
         int i = luckyNumberServer.getLuckyNumber();
-        assertTrue(i >= 0);
+        assertTrue(i > 0);
     }
 }

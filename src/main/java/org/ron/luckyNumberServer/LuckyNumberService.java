@@ -15,6 +15,6 @@ public class LuckyNumberService {
     }
 
     public int getNum() {
-        return luckyNumberDB.getDbVal() + random.nextInt();
+        return depA.processValue(luckyNumberDB.getDbVal() + random.nextInt());
     }
 }
