@@ -16,7 +16,7 @@ public class MapsIntro {
 
     public static void main(String[] args) {
         MapsIntro mapsIntro = new MapsIntro();
-        // mapsIntro.testHashMap();
+        mapsIntro.testHashMap();
         mapsIntro.carEngineMap();
     }
 
@@ -67,6 +67,4 @@ public class MapsIntro {
         double val = myMap.get(key);
         System.out.printf("key=%d, val=%f", key, val);
     }
-
-
 }
