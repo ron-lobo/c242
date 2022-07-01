@@ -26,6 +26,11 @@ public class Engine implements Comparable<Engine> {
                 getCc() == e.getCc();
     }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(type, numCylinders, cc);
+    }
+
     public String getType() {
         return type;
     }

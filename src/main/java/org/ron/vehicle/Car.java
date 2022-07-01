@@ -48,6 +48,25 @@ public class Car {
                 Objects.equals(wheels, car.wheels);
     }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(make, model, engine, colour, wheels);
+    }
+
+//    @Override
+//    public int hashCode() {
+//        // return 0;
+//        // return make.hashCode() + model.hashCode() + engine.hashCode() + colour.hashCode() + wheels.hashCode();
+//        final int PRIME = 97;
+//        int result = 1;
+//        result = result * PRIME + (make == null ? 0 : make.hashCode());
+//        result = result * PRIME + (model == null ? 0 : model.hashCode());
+//        result = result * PRIME + (engine == null ? 0 : engine.hashCode());
+//        result = result * PRIME + (colour == null ? 0 : colour.hashCode());
+//        result = result * PRIME + (wheels == null ? 0 : wheels.hashCode());
+//        return result;
+//    }
+
     public String getMake() {
         return make;
     }

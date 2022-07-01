@@ -90,6 +90,9 @@ public class CollectionsIntro {
         return List.of(e1, e2, e3, e4, e5);
     }
 
+    /**
+     * javadoc comments
+     */
     private void lists() {
         System.out.println("\nLists");
 //         ArrayList<Integer> intList = new ArrayList<>(); // don't do this
