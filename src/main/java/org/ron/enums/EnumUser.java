@@ -26,11 +26,13 @@ public class EnumUser {
     }
 
     private void useGender() {
-
         boolean isMale = true;
         Boolean isAMale = null;
         Gender gender = Gender.MALE;
+        useGender(isMale, isAMale, gender);
+    }
 
+    private void useGender(boolean isMale, Boolean isAMale, Gender gender) {
         String s = "";
         if (isMale) {
             s = "he";
@@ -38,8 +40,14 @@ public class EnumUser {
             s = "she";
         }
         String s2 = isMale ? "he" : "she";
+        String s3 = isAMale == null ? "null" : isAMale ? "he" : "she";
 
+        String s4 = switch (gender) {
+            case MALE -> "he";
+            case FEMALE -> "she";
+            case DONT_KNOW -> "Mx";
+            case BOTH -> "shehe";
+            default -> null;
+        };
     }
-
-
 }
