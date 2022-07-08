@@ -7,6 +7,7 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class LuckyNumberServerTest {
@@ -26,9 +27,15 @@ class LuckyNumberServerTest {
     @Test
     void getLuckyNumber() {
         Mockito.when(luckyNumberHelper.getNumber()).thenReturn(99);
-
         LuckyNumberServer luckyNumberServer = new LuckyNumberServer(luckyNumberHelper);
         int i = luckyNumberServer.getLuckyNumber();
         assertTrue(i > 0);
+    }
+
+    @Test
+    void howToTestForAnException() {
+        Mockito.when(luckyNumberHelper.getNumber()).thenReturn(99);
+        LuckyNumberServer luckyNumberServer = new LuckyNumberServer(luckyNumberHelper);
+        assertThrows(NullPointerException.class, () -> luckyNumberServer.getLuckyNumber());
     }
 }

@@ -100,6 +100,8 @@ public class Java8Streams {
         Stream<Integer> strStream3 = Stream.iterate(123, i -> i + 1);
         Stream<String> strStream4 = Stream.iterate("23", p -> Integer.parseInt(p) < 100, i -> String.valueOf(Integer.parseInt(i) + 1));
 
+        IntStream.range(0, 10);
+
         // Stream.generate()
         Stream<String> endlessStream = Stream.generate(() -> "abc");
     }
