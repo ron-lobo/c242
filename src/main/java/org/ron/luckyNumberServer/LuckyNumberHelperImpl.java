@@ -1,5 +1,8 @@
 package org.ron.luckyNumberServer;
 
+import org.springframework.stereotype.Controller;
+
+@Controller
 public class LuckyNumberHelperImpl implements LuckyNumberHelper {
 
     private LuckyNumberService luckyNumberService;

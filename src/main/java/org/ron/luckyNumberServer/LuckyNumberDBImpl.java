@@ -1,5 +1,8 @@
 package org.ron.luckyNumberServer;
 
+import org.springframework.stereotype.Repository;
+
+@Repository
 public class LuckyNumberDBImpl implements LuckyNumberDB {
 
     private final DepB depB;
