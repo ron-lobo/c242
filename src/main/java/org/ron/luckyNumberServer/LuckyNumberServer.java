@@ -5,7 +5,7 @@ public class LuckyNumberServer {
     private LuckyNumberHelper luckyNumberHelper;
 
     public static void main(String[] args) {
-        DepA depA = new DepA();
+        var depA = new DepA();
         DepB depB = new DepB();
         LuckyNumberDB luckyNumberDB = new LuckyNumberDBImpl(depB);
         LuckyNumberService luckyNumberService = new LuckyNumberServiceImpl(luckyNumberDB, depA);

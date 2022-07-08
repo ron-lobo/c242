@@ -45,9 +45,22 @@ public class EnumUser {
         String s4 = switch (gender) {
             case MALE -> "he";
             case FEMALE -> "she";
-            case DONT_KNOW -> "Mx";
+            case DONT_KNOW -> {
+                System.out.println("hi there");
+                yield "Mx";
+            }
             case BOTH -> "shehe";
             default -> null;
         };
+    }
+
+    private void x() {
+        String xyzHtml = """
+                <html>
+                    <body>
+                        hi mum
+                    </body>
+                </html>
+                                """;
     }
 }

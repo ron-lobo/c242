@@ -18,12 +18,14 @@ public class Engine implements Comparable<Engine> {
     public boolean equals(Object obj) {
         if (this == obj)
             return true;
-        if (!(obj instanceof Engine))
+        if (obj instanceof Engine e) {
+//            Engine e = (Engine) obj;
+            return Objects.equals(type, e.type) &&
+                    getNumCylinders() == e.getNumCylinders() &&
+                    getCc() == e.getCc();
+        } else {
             return false;
-        Engine e = (Engine) obj;
-        return Objects.equals(type, e.type) &&
-                getNumCylinders() == e.getNumCylinders() &&
-                getCc() == e.getCc();
+        }
     }
 
     @Override
