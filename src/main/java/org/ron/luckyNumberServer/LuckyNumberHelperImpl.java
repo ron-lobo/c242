@@ -1,6 +1,6 @@
 package org.ron.luckyNumberServer;
 
-public class LuckyNumberHelperImpl implements ILuckyNumberHelper {
+public class LuckyNumberHelperImpl implements LuckyNumberHelper {
 
     private LuckyNumberService luckyNumberService;
 

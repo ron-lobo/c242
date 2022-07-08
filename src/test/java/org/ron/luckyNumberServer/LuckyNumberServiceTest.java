@@ -12,7 +12,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class LuckyNumberServiceTest {
 
     @Mock
-    private LuckyNumberDB luckyNumberDB;
+    private LuckyNumberDBImpl luckyNumberDB;
     @Mock
     private DepA depA;
 
@@ -27,9 +27,9 @@ class LuckyNumberServiceTest {
 
     @Test
     void getNum() {
-        Mockito.when(depA.processValue(Mockito.anyInt())).thenReturn(99);
+        Mockito.when(depA.processValue(Mockito.anyInt())).thenReturn(99).thenReturn(88).thenThrow(RuntimeException.class);
 
-        LuckyNumberService luckyNumberService = new LuckyNumberService(luckyNumberDB, depA);
+        LuckyNumberServiceImpl luckyNumberService = new LuckyNumberServiceImpl(luckyNumberDB, depA);
         int i = luckyNumberService.getNum();
         assertEquals(i, 99);
 

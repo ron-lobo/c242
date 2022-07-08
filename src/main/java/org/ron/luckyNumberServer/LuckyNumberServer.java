@@ -2,19 +2,19 @@ package org.ron.luckyNumberServer;
 
 public class LuckyNumberServer {
 
-    private ILuckyNumberHelper luckyNumberHelper;
+    private LuckyNumberHelper luckyNumberHelper;
 
     public static void main(String[] args) {
         DepA depA = new DepA();
         DepB depB = new DepB();
-        LuckyNumberDB luckyNumberDB = new LuckyNumberDB(depB);
-        LuckyNumberService luckyNumberService = new LuckyNumberService(luckyNumberDB, depA);
-        ILuckyNumberHelper luckyNumberHelper = new LuckyNumberHelperImpl(luckyNumberService);
+        LuckyNumberDB luckyNumberDB = new LuckyNumberDBImpl(depB);
+        LuckyNumberService luckyNumberService = new LuckyNumberServiceImpl(luckyNumberDB, depA);
+        LuckyNumberHelper luckyNumberHelper = new LuckyNumberHelperImpl(luckyNumberService);
         LuckyNumberServer luckyNumberServer = new LuckyNumberServer(luckyNumberHelper);
         System.out.println(luckyNumberServer.getLuckyNumber());
     }
 
-    public LuckyNumberServer(ILuckyNumberHelper luckyNumberHelper) {
+    public LuckyNumberServer(LuckyNumberHelper luckyNumberHelper) {
         this.luckyNumberHelper = luckyNumberHelper;
     }
 

@@ -1,5 +1,5 @@
 package org.ron.luckyNumberServer;
 
-public interface ILuckyNumberHelper {
+public interface LuckyNumberHelper {
     int getNumber();
 }

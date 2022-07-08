@@ -13,7 +13,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 class LuckyNumberServerTest {
 
     @Mock
-    private ILuckyNumberHelper luckyNumberHelper;
+    private LuckyNumberHelper luckyNumberHelper;
 
     @BeforeEach
     void setUp() {
